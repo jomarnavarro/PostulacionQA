@@ -9,7 +9,7 @@ public class MicroPlayTests extends BaseTests {
     @Test
      public  void testSearchAricle() {
 
-        String nombreProducto = "mouse";
+        String nombreProducto = dataReader.getData("nombreProducto", 1);
 
         loginPage.Login("jpleal79@gmail.com", "serrano832"); // login
         Assert.assertTrue(loginPage.at());
@@ -17,7 +17,7 @@ public class MicroPlayTests extends BaseTests {
         homePage.buscarEnCajaDeTexto(nombreProducto);      // Buscar articulo en caja de texto.
         Assert.assertTrue(homePage.at());
 
-        detallePage.seleccionarArticulo();                 // Selecciona Articulo y muestra su detalle.
+        detallePage.se.gitleccionarArticulo();                 // Selecciona Articulo y muestra su detalle.
         Assert.assertTrue(detallePage.at());
 
         carroDeComprasPage.agregarArticulo();               // Agregar al Carro de Compras

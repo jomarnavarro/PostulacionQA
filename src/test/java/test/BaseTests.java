@@ -1,11 +1,13 @@
 package test;
 
+import common.ExcelReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
@@ -18,9 +20,10 @@ public class BaseTests {
     public DetallePage detallePage;
     public CarroDeComprasPage carroDeComprasPage;
     public CerrarSesionPage cerrarSesionPage;
+    protected ExcelReader dataReader;
 
     @BeforeMethod
-    public void beforeMetohd() {
+    public void beforeMetohd() throws IOException {
         String path = Paths.get(System.getProperty("user.dir"), "src/test/resources/webdrivers/chromedriver.exe").toString();
         System.setProperty("webdriver.chrome.driver", path);
         ChromeDriver driver = new ChromeDriver();
@@ -33,6 +36,7 @@ public class BaseTests {
         loginPage = new LoginPage(driver);
         carroDeComprasPage = new CarroDeComprasPage(driver);
         cerrarSesionPage = new CerrarSesionPage(driver);
+        dataReader = new ExcelReader();
 
     }
 
