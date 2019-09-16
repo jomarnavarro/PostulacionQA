@@ -17,7 +17,7 @@ public class MicroPlayTests extends BaseTests {
         homePage.buscarEnCajaDeTexto(nombreProducto);      // Buscar articulo en caja de texto.
         Assert.assertTrue(homePage.at());
 
-        detallePage.se.gitleccionarArticulo();                 // Selecciona Articulo y muestra su detalle.
+        detallePage.seleccionarArticulo();             // Selecciona Articulo y muestra su detalle.
         Assert.assertTrue(detallePage.at());
 
         carroDeComprasPage.agregarArticulo();               // Agregar al Carro de Compras
